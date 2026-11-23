@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuende Guide - Travel Info</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div>
+            <h1>Tuende Guide</h1>
+            <p class="subtitle">Important country facts to plan for your travel, study, or relocation</p>
+        </div>
+        <div class="badges">
+            <span id="userPill" class="pill">Guest</span>
+            <span id="serverPill" class="pill pill-dark">Server: Ready</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="grid-two">
+            <!-- Account Settings -->
+            <div class="card">
+                <h2>My Account & Settings</h2>
+                <div id="loggedOutView" class="row">
+                    <input type="email" id="emailInput" placeholder="d.indimuli@alustudent.com">
+                    <button id="loginBtn" type="button" class="btn btn-primary">Sign In</button>
+                </div>
+                <div id="loggedInView" class="hidden">
+                    <div class="between">
+                        <span>Hi, <strong id="userName"></strong>!</span>
+                        <button id="logoutBtn" type="button" class="link-btn">Sign out</button>
+                    </div>
+                    <label class="label" for="prefRegionSelect">Preferred starting region</label>
+                    <select id="prefRegionSelect">
+                        <option value="Africa">Africa</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Americas">Americas</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Region Search, Filter & Sort -->
+            <div class="card">
+                <h2>Find Destination Info</h2>
+                <div class="row">
+                    <input id="searchInput" type="text" placeholder="Search country (e.g. Kenya, Rwanda, Uganda)..." />
+                    <button id="searchBtn" type="button" class="btn btn-primary">Search</button>
+                </div>
+                <div class="row top-gap">
+                    <select id="regionSelect">
+                        <option value="Africa">Region: Africa</option>
+                        <option value="Europe">Region: Europe</option>
+                        <option value="Asia">Region: Asia</option>
+                        <option value="Americas">Region: Americas</option>
+                        <option value="Oceania">Region: Oceania</option>
+                    </select>
+                    <select id="sortSelect">
+                        <option value="name-asc">Sort: A to Z</option>
+                        <option value="pop-desc">Sort: Population (High to Low)</option>
+                        <option value="pop-asc">Sort: Population (Low to High)</option>
+                    </select>
+                </div>
+                <p id="statusNote" class="muted">ready</p>
+            </div>
+        </section>
+
+        <div id="errorBox" class="error hidden"></div>
+
+        <!-- Saved Travel List -->
+
+        <section id="savedSection" class="card hidden">
+            <div class="between">
+                <h2>My Saved Destinations</h2>
+                <span id="savedCount" class="muted">0 saved</span>
+            </div>
+            <div id="savedList" class="saved-row"></div>
+        </section>
+
+        <!-- Country Cards -->
+        <section>
+            <div id="guideGrid" class="cards-grid"></div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
