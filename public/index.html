@@ -1,94 +1,113 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuende Guide - Travel Info</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tuende Guide - Travel &amp; Relocation Planner</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <header class="topbar">
-        <div>
-            <h1>Tuende Guide</h1>
-            <p class="subtitle">Important country facts to plan for your travel, study, or relocation</p>
+  <header class="top-bar">
+    <div class="container header-inner">
+      <div>
+        <h1>Tuende Guide</h1>
+        <p class="subtitle">Important country &amp; city facts to plan for your travel, study, or relocation</p>
+      </div>
+      <div class="status-pills">
+        <span id="userPill" class="pill">Guest</span>
+        <span id="serverPill" class="pill pill-muted">Server: Ready</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-layout">
+    <section id="loggedOutView" class="card account-card" aria-label="Sign In or Sign Up">
+      <h2>My Account &amp; Settings</h2>
+      <p class="muted">Sign in or sign up with your email to access destination guides, save places, and set your preferred region.</p>
+      <div class="auth-row">
+        <label for="emailInput" class="sr-only">Email address</label>
+        <input
+          id="emailInput"
+          type="email"
+          placeholder="Enter your email (e.g. traveler@example.com)"
+          autocomplete="email"
+        />
+        <button id="loginBtn" type="button" class="btn btn-primary">Sign In / Sign Up</button>
+      </div>
+    </section>
+
+    <section id="loggedInView" class="card account-bar hidden" aria-label="Signed in account">
+      <div class="logged-in-header">
+        <p>Signed in as <strong id="userName">Traveler</strong></p>
+        <button id="logoutBtn" type="button" class="btn-link">Sign out</button>
+      </div>
+      <div class="pref-group">
+        <label for="prefRegionSelect">Preferred starting region</label>
+        <select id="prefRegionSelect">
+          <option value="Africa">Africa</option>
+          <option value="Europe">Europe</option>
+          <option value="Asia">Asia</option>
+          <option value="Americas">Americas</option>
+          <option value="Oceania">Oceania</option>
+        </select>
+      </div>
+    </section>
+
+    <div id="errorBox" class="error-box hidden" role="alert" aria-live="polite"></div>
+
+    <div id="appContent" class="hidden">
+      <section class="card controls-card" aria-label="Find Destination Info">
+        <h2>Find Destination Info</h2>
+
+        <div class="search-row">
+          <label for="searchInput" class="sr-only">Search destination</label>
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search destination (e.g. Nairobi, Kigali, Paris)..."
+          />
+          <button id="searchBtn" type="button" class="btn btn-primary">Search</button>
         </div>
-        <div class="badges">
-            <span id="userPill" class="pill">Guest</span>
-            <span id="serverPill" class="pill pill-dark">Server: Ready</span>
+
+        <div class="filters-row">
+          <div class="filter-item">
+            <label for="regionSelect" class="sr-only">Filter by region</label>
+            <select id="regionSelect">
+              <option value="Africa">Region: Africa</option>
+              <option value="Europe">Region: Europe</option>
+              <option value="Asia">Region: Asia</option>
+              <option value="Americas">Region: Americas</option>
+              <option value="Oceania">Region: Oceania</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label for="sortSelect" class="sr-only">Sort destinations</label>
+            <select id="sortSelect">
+              <option value="name-asc">Sort: A to Z</option>
+              <option value="pop-desc">Sort: Population (High to Low)</option>
+              <option value="pop-asc">Sort: Population (Low to High)</option>
+            </select>
+          </div>
         </div>
-    </header>
 
-    <main class="container">
-        <section class="grid-two">
-            <!-- Account Settings -->
-            <div class="card">
-                <h2>My Account & Settings</h2>
-                <div id="loggedOutView" class="row">
-                    <input type="email" id="emailInput" placeholder="d.indimuli@alustudent.com">
-                    <button id="loginBtn" type="button" class="btn btn-primary">Sign In</button>
-                </div>
-                <div id="loggedInView" class="hidden">
-                    <div class="between">
-                        <span>Hi, <strong id="userName"></strong>!</span>
-                        <button id="logoutBtn" type="button" class="link-btn">Sign out</button>
-                    </div>
-                    <label class="label" for="prefRegionSelect">Preferred starting region</label>
-                    <select id="prefRegionSelect">
-                        <option value="Africa">Africa</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Asia">Asia</option>
-                        <option value="Americas">Americas</option>
-                        <option value="Oceania">Oceania</option>
-                    </select>
-                </div>
-            </div>
+        <p id="statusNote" class="status-note">Sign in to explore live destinations</p>
+      </section>
 
-            <!-- Region Search, Filter & Sort -->
-            <div class="card">
-                <h2>Find Destination Info</h2>
-                <div class="row">
-                    <input id="searchInput" type="text" placeholder="Search country (e.g. Kenya, Rwanda, Uganda)..." />
-                    <button id="searchBtn" type="button" class="btn btn-primary">Search</button>
-                </div>
-                <div class="row top-gap">
-                    <select id="regionSelect">
-                        <option value="Africa">Region: Africa</option>
-                        <option value="Europe">Region: Europe</option>
-                        <option value="Asia">Region: Asia</option>
-                        <option value="Americas">Region: Americas</option>
-                        <option value="Oceania">Region: Oceania</option>
-                    </select>
-                    <select id="sortSelect">
-                        <option value="name-asc">Sort: A to Z</option>
-                        <option value="pop-desc">Sort: Population (High to Low)</option>
-                        <option value="pop-asc">Sort: Population (Low to High)</option>
-                    </select>
-                </div>
-                <p id="statusNote" class="muted">ready</p>
-            </div>
-        </section>
+      <section id="savedSection" class="card saved-card hidden" aria-label="My Saved Destinations">
+        <div class="saved-header">
+          <h2>My Saved Destinations</h2>
+          <span id="savedCount" class="muted">0 saved</span>
+        </div>
+        <div id="savedList" class="saved-list"></div>
+      </section>
 
-        <div id="errorBox" class="error hidden"></div>
+      <section aria-label="Destination Cards">
+        <div id="guideGrid" class="guide-grid"></div>
+      </section>
+    </div>
+  </main>
 
-        <!-- Saved Travel List -->
-
-        <section id="savedSection" class="card hidden">
-            <div class="between">
-                <h2>My Saved Destinations</h2>
-                <span id="savedCount" class="muted">0 saved</span>
-            </div>
-            <div id="savedList" class="saved-row"></div>
-        </section>
-
-        <!-- Country Cards -->
-        <section>
-            <div id="guideGrid" class="cards-grid"></div>
-        </section>
-    </main>
-
-    <script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
-
 </html>
