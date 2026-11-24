@@ -1,20 +1,20 @@
 ﻿:root {
-  --bg-page: #313b2e;
-  --bg-header: #c9d5b6;
-  --bg-card: #ffffff;
-  --bg-subtle: #f3f6ef;
-  --text-main: #1b241f;
-  --text-muted: #526058;
-  --accent: #9eb382;
-  --accent-hover: #8aa16d;
-  --pill-bg: #e2ead4;
-  --pill-muted: #eef2e8;
-  --border: #dde4d5;
-  --error-bg: #fef2f2;
-  --error-border: #fecaca;
-  --error-text: #b91c1c;
-  --shadow: 0 6px 20px rgba(15, 23, 18, 0.12);
-  --radius: 12px;
+  --sage: #CCD5AE;
+  --beige: #E9EDC9;
+  --cornsilk: #FEFAE0;
+  --papaya: #FAEDCD;
+  --bronze: #D4A373;
+  --bronze-deep: #b88450;
+  --ink: #262D22;
+  --ink-muted: #55614c;
+  --border-warm: #d4d5b8;
+  --error-bg: #fdecec;
+  --error-border: #f5b7b1;
+  --error-text: #9e2a2b;
+  --shadow-soft: 0 8px 24px rgba(38, 45, 34, 0..08);
+  --shadow-hover: 0 12px 28px rgba(38, 45, 34, 0.13);
+  --radius-card: 14px;
+  --radius-control: 10px;
 }
 
 *,
@@ -26,9 +26,9 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: var(--bg-page);
-  color: var(--text-main);
-  line-height: 1.5;
+  background-color: linear-gradient(180deg, var(--beige) 0%, var(--cornsilk) 45%, var(--papaya) 100%);
+  color: var(--ink);
+  line-height: 1.55;
   min-height: 100vh;
 }
 
@@ -52,13 +52,14 @@ body {
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 18px;
+  padding: 0 20px;
 }
 
 .top-bar {
-  background-color: var(--bg-header);
+  background: linear-gradient(135deg, var(--sage) 0%, var(--beige) 100%);
   padding: 20px 0;
-  border-bottom: 1px solid rgba(27, 36, 31, 0.12);
+  border-bottom: 1px solid var(--border-warm);
+  box-shadow: 0 2px 12px rgba(38, 45, 34, 0.06);
 }
 
 .header-inner {
@@ -72,11 +73,12 @@ body {
   font-size: 1.8rem;
   line-height: 1.15;
   letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 .subtitle {
   margin: 6px 0 0;
-  color: var(--text-muted);
+  color: var(--ink-muted);
   font-size: 0.95rem;
 }
 
@@ -91,13 +93,14 @@ body {
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 600;
-  background-color: var(--pill-bg);
-  color: var(--text-main);
+  background-color: var(--cornsilk);
+  color: var(--ink);
+  border: 1px solid var(--border-warm);
 }
 
 .pill-muted {
-  background-color: var(--pill-muted);
-  color: var(--text-muted);
+  background-color: var(--papaya);
+  color: var(--ink-muted);
 }
 
 .main-layout {
@@ -105,24 +108,25 @@ body {
   padding-bottom: 44px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 .card {
-  background-color: var(--bg-card);
-  border-radius: var(--radius);
+  background-color: var(--cornsilk);
+  border-radius: var(--radius-card);
   padding: 20px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-warm);
 }
 
 .card h2 {
   margin: 0 0 10px;
-  font-size: 1.15rem;
+  font-size: 1.18rem;
+  color: var(--ink);
 }
 
 .muted {
-  color: var(--text-muted);
+  color: var(--ink-muted);
   font-size: 0.92rem;
   margin: 0 0 14px;
 }
@@ -132,18 +136,20 @@ input[type="text"],
 select {
   width: 100%;
   padding: 11px 14px;
-  border: 1px solid #c9d2c2;
-  border-radius: 9px;
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-control);
   font-size: 0.95rem;
-  color: var(--text-main);
+  color: var(--ink);
   background-color: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 input:focus,
 select:focus,
 button:focus-visible {
-  outline: 2px solid #4d643d;
+  outline: 2px solid var(--bronze-deep);
   outline-offset: 2px;
+  border-color: var(--bronze);
 }
 
 .btn {
@@ -151,19 +157,21 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   padding: 11px 18px;
-  border: none;
-  border-radius: 9px;
+  border: 1px solid var(--bronze-deep);
+  border-radius: var(--radius-control);
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  background-color: var(--accent);
-  color: var(--text-main);
-  transition: background-color 0.15s ease, transform 0.1s ease;
+  background-color: var(--bronze);
+  color: var(--ink);
+  transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
   white-space: nowrap;
 }
 
 .btn:hover {
-  background-color: var(--accent-hover);
+  background-color: var(--bronze-deep);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(184, 132, 80, 0.28);
 }
 
 .btn:active {
@@ -173,6 +181,15 @@ button:focus-visible {
 .btn-save {
   margin-top: 14px;
   width: 100%;
+  background-color: var(--sage);
+  border-color: #9ba876;
+  color: var(--ink);
+}
+
+.btn-save:hover{
+  background-color: var(--bronze);
+  border-color: var(--bronze-deep);
+  color: var(--ink);
 }
 
 .btn-link {
@@ -214,14 +231,14 @@ button:focus-visible {
 
 .pref-group label {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--ink-muted);
   font-weight: 600;
 }
 
 .status-note {
   margin: 12px 0 0;
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: var(--ink-muted);
 }
 
 .error-box {
@@ -232,6 +249,10 @@ button:focus-visible {
   padding: 12px 16px;
   font-size: 0.92rem;
   font-weight: 600;
+}
+
+.saved-card{
+  background-color: var(--papaya);
 }
 
 .saved-header {
@@ -259,9 +280,11 @@ button:focus-visible {
   gap: 8px;
   padding: 6px 12px;
   border-radius: 999px;
-  background-color: var(--bg-subtle);
-  border: 1px solid var(--border);
+  background-color: var(--cornsilk);
+  border: 1px solid var(--border-warm);
+  color: var(--ink);
   font-size: 0.88rem;
+  font-weight: 500;
 }
 
 .remove-btn {
@@ -288,22 +311,28 @@ button:focus-visible {
 }
 
 .place-card {
-  background-color: var(--bg-card);
-  border-radius: var(--radius);
+  background-color: var(--cornsilk);
+  border-radius: var(--radius-card);
   padding: 16px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-warm);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.place-card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
 }
 
 .flag-img,
 .flag-placeholder {
   width: 100%;
   height: 150px;
-  border-radius: 9px;
-  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  border: 1px solid var(--border-warm);
 }
 
 .flag-img {
@@ -315,8 +344,8 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-subtle);
-  color: var(--text-muted);
+  background-color: var(--beige);
+  color: var(--ink-muted);
   font-weight: 600;
 }
 
@@ -331,16 +360,17 @@ button:focus-visible {
 .place-heading h3 {
   margin: 0;
   font-size: 1.18rem;
+  color: var(--ink);
 }
 
 .badge {
   font-size: 0.76rem;
   font-weight: 600;
-  padding: 3px 9px;
+  padding: 3px 10px;
   border-radius: 999px;
-  background-color: var(--bg-subtle);
-  color: var(--text-muted);
-  border: 1px solid var(--border);
+  background-color: var(--sage);
+  color: var(--ink);
+  border: 1px solid #aeb98c;
   white-space: nowrap;
 }
 
@@ -350,8 +380,9 @@ button:focus-visible {
   gap: 8px 12px;
   margin: 0;
   padding: 10px;
-  background-color: var(--bg-subtle);
-  border-radius: 9px;
+  background-color: var(--beige);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-control);
 }
 
 .meta-grid .span-2 {
@@ -362,20 +393,24 @@ button:focus-visible {
   font-size: 0.74rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--text-muted);
+  color: var(--ink-muted);
 }
 
 .meta-grid dd {
   margin: 2px 0 0;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--ink);
 }
 
 .advisory-note {
   margin: 12px 0 0;
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: var(--ink-muted);
+  background-color: var(--papaya);
+  padding: 9px 11px;
+  border-radius: 8px;
+  border-left: 3px solid var(--bronze);
 }
 
 @media (min-width: 640px) {
