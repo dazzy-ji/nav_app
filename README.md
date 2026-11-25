@@ -14,7 +14,7 @@
 
 * **Sign In /Sign Up:** Open the appication (`http://localhost:3000` locally or `http://18.170.38.182` via the load balancer), go to **My Account & Settings**, enter any valid email address (sucha as `traveler@example.com`), and click **Sign In / Sign Up**. No password is required.
 
-* **Guest & Signed-In Modes:** You cann browse destinations in **Guest** mode; signing in activates a user session and enables persistent saved destinationsacross page reloads.
+* **Guest & Signed-In Modes:** Signing in unlocks full access to destination guides, weather lookups, persistent saved destinations across page reloads. Clicking **Sign Out** ends the active session and returns the user to **My Account** login screen. 
 
 
 ## Features & User Interactions
