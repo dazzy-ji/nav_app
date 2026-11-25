@@ -49,7 +49,7 @@ The applicatio is deployed across three Ubuntu servers using **Node.js**, **PM2*
 2. **Install production dependencies:**
 
    ```
-   npm ci --omit=dev
+   npm install
    
    ```
 
